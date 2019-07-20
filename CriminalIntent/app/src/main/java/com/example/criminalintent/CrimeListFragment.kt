@@ -17,6 +17,7 @@ class CrimeListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         crimeRecyclerView.layoutManager = LinearLayoutManager(activity)
+        crimeRecyclerView.adapter = CrimeListAdapter()
 
     }
 
