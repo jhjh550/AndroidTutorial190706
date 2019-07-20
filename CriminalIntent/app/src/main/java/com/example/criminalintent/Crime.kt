@@ -1,5 +1,6 @@
 package com.example.criminalintent
 
+import android.util.Log
 import java.util.*
 
 class Crime{
