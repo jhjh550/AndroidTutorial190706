@@ -39,8 +39,10 @@ class CrimeListAdapter : RecyclerView.Adapter<CrimeListAdapter.CrimeViewHolder>(
             textViewCrimeDate.text = crime.date.toString()
         }
         override fun onClick(view: View?) {
-            Toast.makeText(itemView.context, crime.title+" clicked",
-                Toast.LENGTH_SHORT).show()
+//            Toast.makeText(itemView.context, crime.title+" clicked",
+//                Toast.LENGTH_SHORT).show()
+            val intent = CrimeActivity.newIntent(itemView.context, crime.uuid)
+            itemView.context.startActivty(intent)
         }
 
     }
