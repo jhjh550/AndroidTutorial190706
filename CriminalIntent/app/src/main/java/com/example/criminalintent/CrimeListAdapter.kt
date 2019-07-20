@@ -1,5 +1,6 @@
 package com.example.criminalintent
 
+import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,11 +40,10 @@ class CrimeListAdapter : RecyclerView.Adapter<CrimeListAdapter.CrimeViewHolder>(
             textViewCrimeDate.text = crime.date.toString()
         }
         override fun onClick(view: View?) {
-//            Toast.makeText(itemView.context, crime.title+" clicked",
-//                Toast.LENGTH_SHORT).show()
-            val intent = CrimeActivity.newIntent(itemView.context, crime.uuid)
-            itemView.context.startActivty(intent)
+            val activity = itemView.context as Activity
+//            val intent = CrimeActivity.newIntent(activity, crime.uuid)
+            val intent = CrimePagerActivity.newIntent(activity, crime.uuid)
+            activity.startActivity(intent)
         }
-
     }
 }

@@ -9,7 +9,8 @@ import java.util.*
 
 class CrimeActivity : SingleFragmentActivity() {
     override fun createFragment(): Fragment {
-        return CrimeFragment()
+        val crimeID = intent.getSerializableExtra(EXTRA_CRIME_ID) as UUID
+        return CrimeFragment.newInstance(crimeID)
     }
 
     companion object{
