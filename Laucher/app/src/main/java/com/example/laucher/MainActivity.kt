@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
 
     fun setupAdapter(){
         val startIntent = Intent(Intent.ACTION_MAIN)
+        startIntent.addCategory(Intent.CATEGORY_LAUNCHER)
+
         val activities = packageManager.queryIntentActivities(startIntent, 0)
         Log.i("activities", "Found "+activities.size+" activities.")
 
@@ -32,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     inner class ActivityHolder(itemView: View)
-        : RecyclerView.ViewHolder(itemView){
+        : RecyclerView.ViewHolder(itemView), View.OnClickListener{
 
         lateinit var resolveInfo: ResolveInfo
         val myTextView = itemView as TextView
@@ -41,7 +43,19 @@ class MainActivity : AppCompatActivity() {
             resolveInfo = info
             val appName = resolveInfo.loadLabel(packageManager)
             myTextView.text = appName
+            myTextView.setOnClickListener(this)
         }
+
+        override fun onClick(p0: View?) {
+            val info = resolveInfo.activityInfo
+            val intent = Intent(Intent.ACTION_MAIN)
+                .setClassName(info.applicationInfo.packageName,
+                    info.name)
+            Log.i("activities", "start activity"+info.name)
+
+            startActivity(intent)
+        }
+
     }
 
     inner class ActivityAdapter(val activities: List<ResolveInfo>)
