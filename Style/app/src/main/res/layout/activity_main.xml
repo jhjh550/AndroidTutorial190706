@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/tableLayout"
+        tools:context=".MainActivity">
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:text="0"
+            android:textSize="50dp"
+            android:gravity="center"
+            android:id="@+id/selectedTextView"
+    />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="0"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:id="@+id/workingTextView"
+            android:background="#555555"
+            android:textColor="#cccccc"
+    />
+    <include
+            android:layout_weight="1"
+            layout="@layout/button_row"
+            tools:ignore="IncludeLayoutParam"/>
+    <include
+            android:layout_weight="1"
+            layout="@layout/button_row"
+            tools:ignore="IncludeLayoutParam"/>
+    <include
+            android:layout_weight="1"
+            layout="@layout/button_row"
+            tools:ignore="IncludeLayoutParam"/>
+    <include
+            android:layout_weight="1"
+            layout="@layout/button_row"
+            tools:ignore="IncludeLayoutParam"/>
+
+</TableLayout>
